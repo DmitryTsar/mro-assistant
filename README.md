@@ -17,3 +17,11 @@ Python 3.12 · FastAPI · PostgreSQL + pgvector · Docker · GitHub Actions
 
 ## Data
 Only public (FAA / EASA) and synthetic data is used in this repository.
+
+## Quick start
+Requirements: Python 3.12
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -e . --group dev
+Run checks:
+    ruff check . && ruff format --check . && mypy src tests && pytest --cov
