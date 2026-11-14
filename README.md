@@ -1,5 +1,7 @@
 # MRO Assistant
 
+[![CI](https://github.com/DmitryTsar/mro-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/DmitryTsar/mro-assistant/actions/workflows/ci.yml)
+
 AI-powered assistant for aircraft maintenance engineers: search across maintenance
 documentation (AMM/IPC), technical term translation (EN/RU/AR) and work card drafting
 with human approval.
@@ -20,7 +22,8 @@ Only public (FAA / EASA) and synthetic data is used in this repository.
 
 ## Quick start
 
-Requirements: Linux or WSL (Ubuntu) and [uv](https://docs.astral.sh/uv/).
+Requirements: Linux or WSL (Ubuntu), `make` (`sudo apt install -y make`)
+and [uv](https://docs.astral.sh/uv/).
 uv installs Python 3.12 automatically if it is missing.
 
 Install uv (or `pipx install uv`):
@@ -35,8 +38,11 @@ Set up the project:
 uv sync --locked
 ```
 
-Run checks:
+Run checks (the same commands run in CI on every pull request):
 
 ```bash
-make check
+make check       # all checks
+make lint        # ruff: lint and formatting
+make typecheck   # mypy
+make test        # pytest with coverage (min 80%)
 ```
