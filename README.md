@@ -23,14 +23,20 @@ Only public (FAA / EASA) and synthetic data is used in this repository.
 Requirements: Linux or WSL (Ubuntu) and [uv](https://docs.astral.sh/uv/).
 uv installs Python 3.12 automatically if it is missing.
 
+Install uv (or `pipx install uv`):
+
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-uv sync
+```
+
+Set up the project:
+
+```bash
+uv sync --locked
 ```
 
 Run checks:
 
 ```bash
 uv run ruff check . && uv run ruff format --check . && uv run mypy src tests && uv run pytest --cov
-```
 ```
